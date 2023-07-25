@@ -3,6 +3,7 @@ import * as Icon from "react-native-feather";
 import React from 'react'
 import { View, Text, TextInput } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { themeColors } from '../theme';
 
 export default function HomeScreen() {
   return (
@@ -18,10 +19,44 @@ export default function HomeScreen() {
 
           </View>
         </View>
-        <View className="p-3 rounded-full">
+        <View style={{backgroundColor:themeColors.bgColor(1)}} className="p-3 rounded-full">
           <Icon.Sliders height="20" width="20" strokeWidth={2.5} color="white" />
         </View>
       </View>
+
+      {/* main */}
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingBottom: 50
+      }}
+    >
+       
+      {/* categories */}
+      <Categories />
+
+      {/* featured */}
+      {/* <View className="mt-5">
+      {
+        featuredCategories?.map(category=>{
+          return (
+            <FeatureRow 
+              key={category._id}
+              id={category._id}
+              title={category.name}
+              resturants={category?.resturants}
+              description={category.description}
+              featuredCategory={category._type}
+            />
+          )
+        })
+      }
+      </View> */}
+        
+
+        
+       
+    </ScrollView>
     </SafeAreaView>
   )
 }
